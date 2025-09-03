@@ -1,0 +1,16 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Participant {
+  id        Int      @id @default(autoincrement())
+  name      String
+  start     DateTime?
+  end       DateTime?
+  createdAt DateTime @default(now())
+}
